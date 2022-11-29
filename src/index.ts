@@ -27,10 +27,18 @@ http.createServer((req, res) => {
           (() => {
             const html = fs.readFileSync('contents/html.txt', 'utf8');
             console.log(html);
-            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
             res.end(html);
           })();
         })();
+      } else if (req.url === '/a'){
+
+      } else if (req.url === '/b'){
+
+      } else if (req.url === '/c'){
+
+      } else if (req.url === '/d'){
+      
       }
     }
   } catch (err) {
