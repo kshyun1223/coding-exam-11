@@ -25,16 +25,7 @@ const server = http.createServer((req, res) => {
             res.end(html);
           })();
         })();
-      } else if (req.url === '/a'){
-        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-        res.end(req.url);
-      } else if (req.url === '/b'){
-        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-        res.end(req.url);
-      } else if (req.url === '/c'){
-        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-        res.end(req.url);
-      } else if (req.url === '/d'){
+      } else {
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
         res.end(req.url);
       }

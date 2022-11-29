@@ -3,23 +3,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const http = require("http");
 const fs = require("fs");
 const port = 8080;
-http.createServer((req, res) => {
+const server = http.createServer((req, res) => {
     try {
         if (req.method === 'GET') {
             if (req.url === '/') {
                 (() => {
-                    /* assemble body */
-                    (() => {
-                        const header = fs.readFileSync('contents/header.txt', 'utf8');
-                        const main = fs.readFileSync('contents/main.txt', 'utf8');
-                        const footer = fs.readFileSync('contents/footer.txt', 'utf8');
-                        fs.writeFileSync('contents/body.txt', `${header}\n${main}\n${footer}`, 'utf8');
-                    })();
                     /* assemble html */
                     (() => {
-                        const head = fs.readFileSync('contents/head.txt', 'utf8');
-                        const body = fs.readFileSync('contents/body.txt', 'utf8');
-                        fs.writeFileSync('contents/html.txt', `${head}\n${body}`, 'utf8');
+                        const head = fs.readFileSync('raw-data/head.txt', 'utf8');
+                        const header = fs.readFileSync('raw-data/header.txt', 'utf8');
+                        const main = fs.readFileSync('raw-data/main.txt', 'utf8');
+                        const footer = fs.readFileSync('raw-data/footer.txt', 'utf8');
+                        fs.writeFileSync('contents/html.txt', `${head}\n${header}\n${main}\n${footer}`, 'utf8');
                     })();
                     /* response html */
                     (() => {
@@ -30,19 +25,7 @@ http.createServer((req, res) => {
                     })();
                 })();
             }
-            else if (req.url === '/a') {
-                res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-                res.end(req.url);
-            }
-            else if (req.url === '/b') {
-                res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-                res.end(req.url);
-            }
-            else if (req.url === '/c') {
-                res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-                res.end(req.url);
-            }
-            else if (req.url === '/d') {
+            else {
                 res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
                 res.end(req.url);
             }
@@ -50,7 +33,7 @@ http.createServer((req, res) => {
     }
     catch (err) {
     }
-})
-    .listen(port, () => {
+});
+server.listen(port, () => {
     console.log(`http://localhost:${8080}/`);
 });
