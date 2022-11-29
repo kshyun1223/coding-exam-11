@@ -10,6 +10,12 @@ const server = http.createServer((req, res) => {
         (() => {
           /* assemble html */
           (() => {
+            fs.readdir("./raw_data", (err, file) => {
+              if (err) throw err;
+              const logJson = JSON.stringify(file, null, 2);
+              fs.writeFileSync("./contents/log.json", logJson);
+            });
+            
             const head = fs.readFileSync('./raw_data/head.txt', 'utf8');
             const header = fs.readFileSync('./raw_data/header.txt', 'utf8');
             const main = fs.readFileSync('./raw_data/main.txt', 'utf8');
@@ -37,7 +43,6 @@ const server = http.createServer((req, res) => {
     
   }
 })
-
 server.listen(port, () => { // 서버 연결
   console.log(`http://localhost:${8080}/`);
 });
