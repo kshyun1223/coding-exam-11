@@ -3,7 +3,7 @@ import * as fs from 'fs';
 
 const port = 8080;
 
-http.createServer((req, res) => {
+const server = http.createServer((req, res) => {
   try {
     if (req.method === 'GET'){
       if (req.url === '/'){
@@ -49,7 +49,8 @@ http.createServer((req, res) => {
     
   }
 })
-.listen(port, () => { // 서버 연결
+
+server.listen(port, () => { // 서버 연결
   console.log(`http://localhost:${8080}/`);
 });
 
