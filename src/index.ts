@@ -8,19 +8,13 @@ const server = http.createServer((req, res) => {
     if (req.method === 'GET'){
       if (req.url === '/'){
         (() => {
-          /* assemble body */
-          (() => {
-            const header = fs.readFileSync('contents/header.txt', 'utf8');
-            const main = fs.readFileSync('contents/main.txt', 'utf8');
-            const footer = fs.readFileSync('contents/footer.txt', 'utf8');
-            fs.writeFileSync('contents/body.txt', `${header}\n${main}\n${footer}`, 'utf8');
-          })();
-
           /* assemble html */
           (() => {
-            const head = fs.readFileSync('contents/head.txt', 'utf8');
-            const body = fs.readFileSync('contents/body.txt', 'utf8');
-            fs.writeFileSync('contents/html.txt', `${head}\n${body}`, 'utf8');
+            const head = fs.readFileSync('raw-data/head.txt', 'utf8');
+            const header = fs.readFileSync('raw-data/header.txt', 'utf8');
+            const main = fs.readFileSync('raw-data/main.txt', 'utf8');
+            const footer = fs.readFileSync('raw-data/footer.txt', 'utf8');
+            fs.writeFileSync('contents/html.txt', `${head}\n${header}\n${main}\n${footer}`, 'utf8');
           })();
 
           /* response html */
