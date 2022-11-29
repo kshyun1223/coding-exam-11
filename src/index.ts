@@ -38,4 +38,3 @@ const server = http.createServer((req, res) => {
 server.listen(port, () => { // 서버 연결
   console.log(`http://localhost:${8080}/`);
 });
-
