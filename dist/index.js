@@ -10,14 +10,17 @@ const server = http.createServer((req, res) => {
                 (() => {
                     /* assemble html */
                     (() => {
+                        const data = [];
                         fs.readdir("./raw-data", (err, fileNameElement) => {
-                            // let data:[] = [];
-                            // if (err) throw err;
+                            if (err)
+                                throw err;
                             console.log(fileNameElement);
-                            // fileNameElement.map((fileName) => {
-                            //   console.log(fileName)
-                            // })
+                            data.push(fileNameElement);
                         });
+                        console.log(data);
+                        // fileNameElement.map((fileName) => {
+                        //   console.log(fileName)
+                        // })
                     })();
                     /* assemble html */
                     (() => {
