@@ -32,13 +32,17 @@ http.createServer((req, res) => {
           })();
         })();
       } else if (req.url === '/a'){
-
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.end(req.url);
       } else if (req.url === '/b'){
-
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.end(req.url);
       } else if (req.url === '/c'){
-
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.end(req.url);
       } else if (req.url === '/d'){
-      
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.end(req.url);
       }
     }
   } catch (err) {
