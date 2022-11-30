@@ -5,6 +5,8 @@ const port = 8080;
 const server = http.createServer((req: any, res: any) => {
   try {
     if (req.method === 'GET'){
+      // if (req.url === '/'){
+      // else if (req.url === '/'){
       if (req.url === '/'){
         (() => {
           /* logJSON */
