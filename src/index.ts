@@ -8,10 +8,12 @@ const server = http.createServer((req: any, res: any) => {
       if (req.url === '/'){
         (() => {
           /* logJSON */
-          const logJSON = require('log_json')
-          logJSON("./raw_data")
+          const logJSON = require('./log_json')
+          logJSON('./raw_data', "./contents/log.json")
 
-          // * make html
+          /* make html */
+          const makeHTML = require('./make_html')
+          makeHTML('./contents/log.json', './raw_data/', './contents/html.txt')
 
           /* response html */
           (() => {

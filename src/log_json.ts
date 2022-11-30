@@ -1,8 +1,8 @@
-module.exports = (pathString:string) => {
+module.exports = (input:string, output:string) => {
   const fs = require('fs')
-  fs.readdir(pathString, (err: any, file: any) => {
+  fs.readdir(input, (err: any, file: any) => {
     if (err) throw err;
     const logJson = JSON.stringify(file, null, 2);
-    fs.writeFileSync("./contents/log.json", logJson);
+    fs.writeFileSync(output, logJson);
   })
 }
