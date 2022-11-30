@@ -5,8 +5,6 @@ const port = 8080;
 const server = http.createServer((req: any, res: any) => {
   try {
     if (req.method === 'GET'){
-      // if (req.url === '/'){
-      // else if (req.url === '/'){
       if (req.url === '/'){
         (() => {
           /* logJSON */
@@ -49,6 +47,15 @@ const server = http.createServer((req: any, res: any) => {
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
         res.end(req.url);
       }
+    } else if (req.method === 'POST'){
+      req.on('data', (chunk: string) => { // chunk가 뭐지?
+        fs.writeFileSync("./raw_data/main.txt", chunk);
+      });
+      req.on('end', () => {
+        // let qwer = JSON.stringify(asdf)
+        res.writeHead(302, {Location: '/'}); // 리다이렉트 하려면 302 코드 필요한듯...?
+        res.end();
+      });
     }
   } catch (err) {
     console.log(err)
