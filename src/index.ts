@@ -48,14 +48,23 @@ const server = http.createServer((req: any, res: any) => {
         res.end(req.url);
       }
     } else if (req.method === 'POST'){
+      const body=[]; 
+
+      // on 은 특정 event를 listen 할 수 있게 해준다. 여기서는 data event가 발생할 때마다 특정 펑션 수행
       req.on('data', (chunk: string) => { // chunk가 뭐지?
-        fs.writeFileSync("./raw_data/main.txt", chunk);
+        body.push(chunk); //body에 chunk 데이터를 넣는다. 
+        console.log(body.toString())
       });
-      req.on('end', () => {
-        // let qwer = JSON.stringify(asdf)
-        res.writeHead(302, {Location: '/'}); // 리다이렉트 하려면 302 코드 필요한듯...?
-        res.end();
-      });
+
+      /* req.on('end' , ()=>{// on에서 읽어와서 body에 저장한 chunk 데이터를 string으로 바꿔서 파싱해준다.
+        const parsedBody = Buffer.concat(body).toString();
+        console.log(parsedBody)
+        // const message = parsedBody.split('=')[1]; // = 을기준으로 split해서 message에 넣어준다. 
+        fs.writeFileSync("./raw_data/main.txt", parsedBody);
+      }); */
+
+      res.writeHead(302, {Location: '/'}); // 리다이렉트 하려면 302 코드 필요한듯...?
+      res.end();
     }
   } catch (err) {
     console.log(err)
