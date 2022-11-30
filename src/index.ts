@@ -7,11 +7,13 @@ const server = http.createServer((req: any, res: any) => {
     if (req.method === 'GET'){
       if (req.url === '/'){
         (() => {
-          // * logJSON
-          
+          /* logJSON */
+          const logJSON = require('log_json')
+          logJSON("./raw_data")
+
           // * make html
 
-          // * response html
+          /* response html */
           (() => {
             const html = fs.readFileSync('./contents/html.txt', 'utf8');
             // console.log(html);
