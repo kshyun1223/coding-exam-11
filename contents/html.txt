@@ -3,9 +3,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 <ul><li>메뉴</li></ul>
-<p>title=pppppppppppppp&content=ggggggggggggggg<p>
+{"date":"2022-12-01T07:40:25.852Z","title":"Thu Thu Thu Thu Thu Thu Thu Thu Thu ","content":"Dec Dec Dec Dec Dec Dec Dec Dec Dec Dec Dec "}
 <footer>
-  <form action="http://localhost:8080/post" method="post">
+  <form action="http://localhost:5580/post" method="post">
     <p><input type="text" name="title" placeholder="title"></p>
     <p><textarea name="content" placeholder="content" cols="22" rows="10"></textarea></p>
     <input type="submit">
