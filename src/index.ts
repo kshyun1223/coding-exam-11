@@ -52,12 +52,12 @@ const server = http.createServer((req: any, res: any) => {
     } else if (req.method === 'POST'){
       let body =''
       req.on('data', (data: string) => {
-        body+=data
-        const parsed = querystring.parse(body)
-        const component = `<p>${parsed.content}<p>`
         const today = new Date()
-        fs.writeFileSync("./raw_data/main.txt", `${today + '<br>' + component}`);
-        fs.writeFileSync("./contents/main.json", `"${today + '<br>' + component}"`);
+        body+=(today+data)
+        const parsed = querystring.parse(body)
+        console.log(parsed)
+        // fs.writeFileSync("./contents/main.json", `"${today + '<br>' + component}"`);
+        /* fs.writeFileSync("./raw_data/main.txt", `${today + '<br>' + component}`); */
       });
 
       res.writeHead(302, {Location: '/'}); // 리다이렉트 하려면 302 코드 필요한듯...?
