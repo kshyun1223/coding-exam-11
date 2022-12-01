@@ -2,12 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const http = require("http");
 const fs = require("fs");
+const querystring = require("querystring");
 const port = 8080;
 const server = http.createServer((req, res) => {
     try {
         if (req.method === 'GET') {
-            // if (req.url === '/'){
-            // else if (req.url === '/'){
             if (req.url === '/') {
                 (() => {
                     /* logJSON */
@@ -47,6 +46,18 @@ const server = http.createServer((req, res) => {
                 res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
                 res.end(req.url);
             }
+        }
+        else if (req.method === 'POST') {
+            let body = '';
+            req.on('data', (data) => {
+                body += data;
+                const parsed = querystring.parse(body);
+                // console.log(parsed.content)
+                const component = `<p>${parsed}<p>`;
+                fs.writeFileSync("./raw_data/main.txt", component);
+            });
+            res.writeHead(302, { Location: '/' }); // 리다이렉트 하려면 302 코드 필요한듯...?
+            res.end();
         }
     }
     catch (err) {
