@@ -1,5 +1,7 @@
-import http = require('http');
-import fs = require('fs');
+import * as http from 'http';
+import * as fs from 'fs';
+import { logJSON } from './log_json';
+import { makeHTML } from './make_html';
 const port = 8080;
 
 const server = http.createServer((req: any, res: any) => {
@@ -8,11 +10,9 @@ const server = http.createServer((req: any, res: any) => {
       if (req.url === '/'){
         (() => {
           /* logJSON */
-          const logJSON = require('./log_json')
           logJSON('./raw_data', "./contents/log.json")
 
           /* make html */
-          const makeHTML = require('./make_html')
           makeHTML('./contents/log.json', './raw_data/', './contents/html.txt')
 
           /* response html */
