@@ -2,7 +2,7 @@ import * as http from 'http';
 import * as fs from 'fs';
 import * as querystring from 'querystring'
 
-const port = 8080;
+const port = 5580;
 
 const server = http.createServer((req: any, res: any) => {
   try {
@@ -54,9 +54,9 @@ const server = http.createServer((req: any, res: any) => {
       req.on('data', (data: string) => {
         body+=data
         const parsed = querystring.parse(body)
-        // console.log(parsed.content)
-        const component = `<p>${parsed}<p>`
+        const component = `<p>${parsed.content}<p>`
         fs.writeFileSync("./raw_data/main.txt", component);
+        fs.writeFileSync("./contents/main.json", `"${component}"`);
       });
 
       res.writeHead(302, {Location: '/'}); // 리다이렉트 하려면 302 코드 필요한듯...?
@@ -67,5 +67,5 @@ const server = http.createServer((req: any, res: any) => {
   }
 })
 server.listen(port, () => { // 서버 연결
-  console.log(`http://localhost:${8080}/`);
+  console.log(`http://localhost:${port}/`);
 });
