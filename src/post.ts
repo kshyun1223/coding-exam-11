@@ -8,15 +8,15 @@ export const post = (req:any, res:any):void => {
     const parsed = querystring.parse(body)
     
     interface MainType {
-      date: any;
-      title: any;
-      content: any;
+      date: Date;
+      title: string | string[] ;
+      content: string | string[];
     }
     class Main implements MainType {
       constructor (
-        public date: any,
-        public title: any,
-        public content: any
+        public date: Date,
+        public title: string | string[],
+        public content: string | string[],
       ) { }
     }
     const main = new Main(new Date(), parsed.title, parsed.content);
