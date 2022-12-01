@@ -43,3 +43,13 @@
 - 응답할 html 파일 내에 post 요청 달기
 - post 요청 처리 (post 내용 텍스트 파일로 저장하기)
 - 일단 post 요청 form을 하나 만들자
+
+## 4회차
+### 요구사항
+- port : 5580
+- request.method = "POST"
+- <form method="POST">
+- event : Enter
+- 설명 : post form에 데이터를 넣은 후 엔터를 누르면
+- 이벤트가 실행되어 -> 임의의 디렉토리에 JSON파일로 날짜와 함께 저장됨
+- 날짜구하는 API : new Date()

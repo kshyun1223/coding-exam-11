@@ -3,5 +3,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 <ul><li>메뉴</li></ul>
-<div id="root">hello</div>
-<footer>kdt 클래스</footer>
+<p>title=pppppppppppppp&content=ggggggggggggggg<p>
+<footer>
+  <form action="http://localhost:8080/post" method="post">
+    <p><input type="text" name="title" placeholder="title"></p>
+    <p><textarea name="content" placeholder="content" cols="22" rows="10"></textarea></p>
+    <input type="submit">
+  </form>
+</footer>
