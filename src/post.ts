@@ -22,7 +22,7 @@ export const post = (req:any, res:any):void => {
     const main = new Main(new Date(), parsed.title, parsed.content);
     console.log(main)
 
-    fs.writeFileSync("./contents/main.json", `"${main}"`);
+    fs.writeFileSync("./contents/main.json", `${JSON.stringify(main)}`);
     fs.writeFileSync("./raw_data/main.txt", `${JSON.stringify(main)}`);
   });
 
