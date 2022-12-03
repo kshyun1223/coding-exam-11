@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 <ul><li>메뉴</li></ul>
-{"date":"2022-12-01T07:40:25.852Z","title":"Thu Thu Thu Thu Thu Thu Thu Thu Thu ","content":"Dec Dec Dec Dec Dec Dec Dec Dec Dec Dec Dec "}
+{"date":"2022-12-03T11:03:51.290Z","title":"titletitletitletitletitle","content":"contentcontentcontentcontentcontent"}
 <footer>
   <form action="http://localhost:5580/post" method="post">
     <p><input type="text" name="title" placeholder="title"></p>
