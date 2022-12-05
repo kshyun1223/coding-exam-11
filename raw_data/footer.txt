@@ -1,7 +1,8 @@
-<footer>
-  <form action="http://localhost:5580/post" method="post">
-    <p><input type="text" name="title" placeholder="title"></p>
-    <p><textarea name="content" placeholder="content" cols="22" rows="10"></textarea></p>
-    <input type="submit">
-  </form>
-</footer>
+  <footer>
+    <form action="http://localhost:5580/post" method="post">
+      <p><input type="text" name="title" placeholder="title"></p>
+      <p><textarea name="content" placeholder="content" cols="22" rows="10"></textarea></p>
+      <input type="submit">
+    </form>
+  </footer>
+</body>

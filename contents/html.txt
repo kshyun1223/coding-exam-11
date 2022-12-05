@@ -1,13 +1,17 @@
+<head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-<ul><li>메뉴</li></ul>
-{"date":"2022-12-03T11:03:51.290Z","title":"titletitletitletitletitle","content":"contentcontentcontentcontentcontent"}
-<footer>
-  <form action="http://localhost:5580/post" method="post">
-    <p><input type="text" name="title" placeholder="title"></p>
-    <p><textarea name="content" placeholder="content" cols="22" rows="10"></textarea></p>
-    <input type="submit">
-  </form>
-</footer>
+</head>
+<body>
+  <ul><li>메뉴</li></ul>
+{"date":"2022-12-05T06:59:42.835Z","title":"tttttttttttttttttttttttttttttttttttttttt","content":"ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"}
+  <footer>
+    <form action="http://localhost:5580/post" method="post">
+      <p><input type="text" name="title" placeholder="title"></p>
+      <p><textarea name="content" placeholder="content" cols="22" rows="10"></textarea></p>
+      <input type="submit">
+    </form>
+  </footer>
+</body>
