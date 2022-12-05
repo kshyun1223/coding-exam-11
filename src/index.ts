@@ -1,5 +1,5 @@
 import * as http from 'http';
-import { main } from './main';
+import { home } from './home';
 import { post } from './post';
 
 const port = 5580;
@@ -9,7 +9,7 @@ const server = http.createServer((req: any, res: any) => {
     if (req.method === 'GET'){
       /* 시작페이지 */
       if (req.url === '/'){
-        main(req, res)
+        home(req, res)
 
       /* 라우팅 */
       } else {

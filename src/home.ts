@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-export const main = (_req:any, res:any):void => {
+export const home = (_req:any, res:any):void => {
   (() => {
     /* logJSON */
     (()=> {
@@ -18,13 +18,15 @@ export const main = (_req:any, res:any):void => {
 
       const fileArray = []
       for (let key in jsonData){
-        const value = jsonData[key].replace('.txt', '')
-        fileArray.push(value)
+        const value = jsonData[key].split('.')
+        fileArray.push(value[0])
       }
+      // console.log(fileArray) //['footer', 'head', 'header', 'main']
 
       const eachContents:any = {}
-      fileArray.forEach((key) => eachContents[key] = fs.readFileSync('./raw_data/'+`${key}`+'.txt', 'utf8'))
-      // console.log(eachContents)
+      fileArray.forEach((key) => eachContents[key] = fs.readFileSync(`./raw_data/${key}`+".txt", 'utf8'))
+      // console.log("이게모얌?", eachContents)
+      // console.log("이건모얌?", JSON.parse(eachContents.main))
 
       const html = `${eachContents.head}\n${eachContents.header}\n${eachContents.main}\n${eachContents.footer}\n`
       fs.writeFileSync('./contents/html.txt', html, 'utf8');
