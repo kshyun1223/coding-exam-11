@@ -20,10 +20,15 @@ export const post = (req:any, res:any):void => {
       ) { }
     }
     const main = new Main(new Date(), parsed.title, parsed.content);
-    console.log(main)
+    
+    const mainAssemble = `
+      <p>날짜: ${main.date.toLocaleString()}</p>
+      <p>제목: ${main.title}</p>
+      <p>내용: ${main.content}</p>
+    `
+    console.log(mainAssemble)
 
-    fs.writeFileSync("./contents/main.json", `${JSON.stringify(main)}`);
-    fs.writeFileSync("./raw_data/main.txt", `${JSON.stringify(main)}`);
+    fs.writeFileSync("./raw_data/main.txt", mainAssemble);
   });
 
   res.writeHead(302, {Location: '/'}); // 리다이렉트 하려면 302 코드 필요한듯...?

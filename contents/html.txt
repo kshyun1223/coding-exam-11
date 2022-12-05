@@ -5,8 +5,12 @@
   <title>Document</title>
 </head>
 <body>
-  <ul><li>메뉴</li></ul>
-{"date":"2022-12-05T06:59:42.835Z","title":"tttttttttttttttttttttttttttttttttttttttt","content":"ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"}
+  <h2>게시판</h2>
+
+      <p>날짜: 2022. 12. 5. 오후 4:35:10</p>
+      <p>제목: 제목입니당</p>
+      <p>내용: 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+    
   <footer>
     <form action="http://localhost:5580/post" method="post">
       <p><input type="text" name="title" placeholder="title"></p>
